@@ -1,0 +1,20 @@
+name: Unzip ZIP file
+
+on:
+  push:
+    paths:
+      - 'WhatsAppLockByToxic.zip'
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Unzip file
+        run: |
+          unzip WhatsAppLockByToxic.zip -d extracted/
+      
+      - name: Show contents
+        run: ls -R extracted
